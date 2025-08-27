@@ -14,11 +14,11 @@
     "sequelize": "^6.37.7"
   },
   "dependencies": {
-    "account_service": "github:LeonTheBuilder/account_service",
+    "account_service": "github:LeonTheBuilder/account_service.git",
     "aframework": "git+https://github.com/LeonTheBuilder/aframework.git",
-    "ai_service": "github:LeonTheBuilder/ai_service",
+    "ai_service": "github:LeonTheBuilder/ai_service.git",
     "message_service": "git+https://github.com/LeonTheBuilder/message_service.git",
-    "user_service": "github:LeonTheBuilder/user_service",
-    "web_resources": "github:LeonTheBuilder/web_resources"
+    "user_service": "github:LeonTheBuilder/user_service.git",
+    "web_resources": "github:LeonTheBuilder/web_resources.git"
   }
 }
