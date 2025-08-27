@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include(`${appcfg.app.rootFolder}/node_modules/web_resources/src/web/templates/_top.ejs`); %>
+<!--------------------------------------------------------------------------------------------------------------------->
+<div class="flex justify-end space-x-1">
+    <a class="btn btn-sm btn-error" @click="confirmDeleteStrategy">删除此策略</a>
+    <a class="btn btn-sm" href="/">返回</a>
+</div>
+
+<div class="p-3 text-xs opacity-60 shadow rounded-box">编辑策略</div>
+
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" checked="checked"/>
+    <div class="collapse-title font-semibold">
+        标题
+    </div>
+    <div class="collapse-content text-sm">
+        <input type="text" placeholder="Type here" class="input w-full" v-model="strategy.title"/>
+    </div>
+</div>
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" checked="checked"/>
+    <div class="collapse-title font-semibold">
+        描述
+    </div>
+    <div class="collapse-content text-sm">
+        下载数据文件并上传到 Qwen 对话框, 复制 prompt 粘贴到 Qwen 对话框, 由 Qwen 生成内容后, 将生成的内容复制到第三步。
+        <br>
+        <textarea class="textarea h-50 w-full" v-model="strategy.description">
+        </textarea>
+    </div>
+</div>
+
+
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" checked="checked"/>
+    <div class="collapse-title font-semibold">
+        prompts
+    </div>
+    <div class="collapse-content text-sm">
+        下载数据文件并上传到 Qwen 对话框, 复制 prompt 粘贴到 Qwen 对话框, 由 Qwen 生成内容后, 将生成的内容复制到第三步。
+        <br><br>
+        大宗交易数据<br>
+        <select class="select" v-model="blockTradeDaoValue">
+            <option v-for="i in [0,1,2,3,4,5,6,7]" :value="i">${i} 天</option>
+        </select><br>
+        大单交易数据<br>
+        <select class="select" v-model="bigDealDaoValue">
+            <option v-for="i in [0,1,2,3,4,5,6,7]" :value="i">${i} 天</option>
+        </select><br>
+    </div>
+</div>
+
+
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" checked="checked"/>
+    <div class="collapse-title font-semibold">
+        prompts
+    </div>
+    <div class="collapse-content text-sm">
+        下载数据文件并上传到 Qwen 对话框, 复制 prompt 粘贴到 Qwen 对话框, 由 Qwen 生成内容后, 将生成的内容复制到第三步。
+        <br>
+        <textarea class="textarea h-50 w-full" v-model="strategy.prompts">
+        </textarea>
+    </div>
+</div>
+
+
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" checked="checked"/>
+    <div class="collapse-title font-semibold">
+    </div>
+    <div class="collapse-content text-sm">
+        <button class="btn btn-sm" @click="updateStrategy">保存</button>
+    </div>
+</div>
+
+
+<!--------------------------------------------------------------------------------------------------------------------->
+<%- include(`${appcfg.app.rootFolder}/node_modules/web_resources/src/web/templates/_bottom.ejs`); %>
+<script type="text/javascript">
+    <%- include(`${appcfg.app.rootFolder}/src/web/capofpro/strategy.edit.js`); %>
+</script>
+</html>

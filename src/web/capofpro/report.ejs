@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include(`${appcfg.app.rootFolder}/node_modules/web_resources/src/web/templates/_top.ejs`); %>
+<script type="text/javascript" src="/dom-to-image.min.js"></script>
+<script type="text/javascript" src="/marked.umd.js"></script>
+
+<div class="flex justify-end space-x-1">
+    <a class="btn btn-sm" href="/">返回</a>
+</div>
+
+<div class="p-3 text-xs opacity-60 shadow rounded-box">capof.pro 大宗交易图文生成器</div>
+
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" checked="checked"/>
+    <div class="collapse-title font-semibold">
+        报告状态
+    </div>
+    <div class="collapse-content text-sm">
+        <div role="alert" class="alert alert-info" v-if="report.sifStatus ==='i'">
+            <span class="loading loading-spinner loading-md"></span>
+            <span>New software update available.</span>
+        </div>
+        <div role="alert" class="alert alert-success" v-if="report.sifStatus ==='s'">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                 viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Your purchase has been confirmed!</span>
+        </div>
+        <div role="alert" class="alert alert-error" v-if="report.sifStatus ==='f'">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                 viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Error! Task failed successfully.</span>
+        </div>
+
+    </div>
+</div>
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" checked="checked"/>
+    <div class="collapse-title font-semibold">
+        结果
+    </div>
+    <div class="collapse-content text-sm">
+
+        <div class="badge badge-outline badge-primary">重点监控股票清单</div>
+        <br>
+        <div id="div1"></div>
+        <br><br><br>
+        <div class="badge badge-outline badge-primary">机构动向摘要</div>
+        <br>
+        <div id="div2"></div>
+        <br><br><br>
+        <div class="badge badge-outline badge-primary">明日交易策略建议</div>
+        <br>
+        <div id="div3"></div>
+        <br><br><br>
+
+    </div>
+</div>
+
+
+<!--------------------------------------------------------------------------------------------------------------------->
+<%- include(`${appcfg.app.rootFolder}/node_modules/web_resources/src/web/templates/_bottom.ejs`); %>
+<script type="text/javascript">
+    <%- include(`${appcfg.app.rootFolder}/src/web/capofpro/report.js`); %>
+</script>
+</html>

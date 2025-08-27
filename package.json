@@ -1,0 +1,24 @@
+{
+  "name": "guagua",
+  "version": "1.0.1",
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com"
+  },
+  "scripts": {
+    "dev": "nodemon src/main.js",
+    "prod": "nodemon src/main.js"
+  },
+  "devDependencies": {
+    "mocha": "^11.1.0",
+    "nodemon": "^3.1.7",
+    "sequelize": "^6.37.7"
+  },
+  "dependencies": {
+    "account_service": "github:LeonTheBuilder/account_service",
+    "aframework": "git+https://github.com/LeonTheBuilder/aframework.git",
+    "ai_service": "github:LeonTheBuilder/ai_service",
+    "message_service": "git+https://github.com/LeonTheBuilder/message_service.git",
+    "user_service": "github:LeonTheBuilder/user_service",
+    "web_resources": "github:LeonTheBuilder/web_resources"
+  }
+}
